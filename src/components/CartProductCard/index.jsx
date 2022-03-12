@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux";
-import { addProductsThunk } from "../../store/modules/cartProducts/thunk";
+import { removeProductsThunk } from "../../store/modules/cartProducts/thunk";
 import formatValue from "../../utils/formatValue";
 import { CardContainer } from "./style";
 
-const ProductCard = ({ product }) => {
+const CartProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const { name, price, image } = product;
 
-  const handleAddCart = () => {
-    dispatch(addProductsThunk(product));
+  const handleRemoveProductCart = () => {
+    dispatch(removeProductsThunk(product));
   };
 
   return (
@@ -18,11 +18,11 @@ const ProductCard = ({ product }) => {
       </figure>
       <div>
         <p>{name}</p>
-        <p>{formatValue(price)}</p>
-        <button onClick={handleAddCart}>Adicionar ao carrinho</button>
+        <span>{formatValue(price)}</span>
+        <button onClick={handleRemoveProductCart}>Remover</button>
       </div>
     </CardContainer>
   );
 };
 
-export default ProductCard;
+export default CartProductCard;

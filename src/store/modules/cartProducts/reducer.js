@@ -1,12 +1,19 @@
-import { ADD_PRODUCTS_TO_CART } from "./actionsType";
+import { ADD_PRODUCTS_TO_CART, REMOVE_PRODUCTS_FROM_CART } from "./actionsType";
 
-const digimonsReducer = (state = [], action) => {
+const cartProductsReducer = (
+  state = JSON.parse(localStorage.getItem("@KenzieShop:productsCart"))
+    ? JSON.parse(localStorage.getItem("@KenzieShop:productsCart"))
+    : [],
+  action
+) => {
   switch (action.type) {
     case ADD_PRODUCTS_TO_CART:
-      return [...state, action.product];
+      return action.newCart;
+    case REMOVE_PRODUCTS_FROM_CART:
+      return action.newCart;
     default:
       return state;
   }
 };
 
-export default digimonsReducer;
+export default cartProductsReducer;

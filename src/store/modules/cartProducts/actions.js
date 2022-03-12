@@ -1,6 +1,11 @@
-import { ADD_PRODUCTS_TO_CART } from "../products/actionsType";
+import { ADD_PRODUCTS_TO_CART, REMOVE_PRODUCTS_FROM_CART } from "./actionsType";
 
-export const addProducts = (product) => ({
+export const addProducts = (newCart) => ({
     type: ADD_PRODUCTS_TO_CART,
-    product
+    newCart
+});
+
+export const removeProducts = (newCart) => ({
+    type: REMOVE_PRODUCTS_FROM_CART,
+    newCart
 })

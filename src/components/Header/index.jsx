@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { HeaderContainer } from "./style";
+import CartCounter from "../CartCounter";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FiLogIn } from "react-icons/fi";
 
 const Header = () => {
+  const { cartProducts } = useSelector((store) => store);
+
   return (
     <HeaderContainer>
       <Link to="/dashboard">
@@ -10,10 +16,17 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/cart">Carrinho</Link>
+            <Link to="/cart">
+              {cartProducts.length !== 0 && <CartCounter />}
+              <AiOutlineShoppingCart />
+              Carrinho
+            </Link>
           </li>
           <li>
-            <Link to="/">Entrar</Link>
+            <Link to="/">
+              <FiLogIn />
+              Entrar
+            </Link>
           </li>
         </ul>
       </nav>

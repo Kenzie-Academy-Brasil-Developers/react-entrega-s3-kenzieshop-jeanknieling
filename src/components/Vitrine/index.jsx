@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard";
 
 const Vitrine = () => {
   const { products } = useSelector((store) => store);
-  console.log(products);
+
   return (
     <VitrineContainer>
       {products.map((product, index) => (
