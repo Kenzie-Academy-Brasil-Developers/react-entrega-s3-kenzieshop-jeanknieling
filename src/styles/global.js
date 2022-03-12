@@ -15,6 +15,7 @@ export default createGlobalStyle`
         --color-gray: #D0D0D0;
         --color-purple: #8684FC;
         --color-blue: #3D50B3;
+        --color-red: #F00;
     }
 
     body {
